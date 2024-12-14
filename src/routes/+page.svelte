@@ -30,7 +30,7 @@
 	</nav>
 
 	<!-- Main Content -->
-	<div class="w-3/4 p-4" style="background-image: url('/static/background.svg'); background-size: cover;">
+	<div class="w-3/4 p-4" style="background-image: url('/background.svg'); background-size: cover;">
 		<h3 class="mb-4 text-3xl">Kindle Dashboard</h3>
 		<div class="chart-container">
 			<LayerCake
