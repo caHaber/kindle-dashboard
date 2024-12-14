@@ -20,7 +20,9 @@
 
 <div class="flex h-screen">
 	<!-- Navigation Bar -->
-	<nav class="w-1/4 bg-gradient-to-b from-blue-600 to-blue-100 p-4 text-white rounded-full border-2 border-white">
+	<nav
+		class="w-1/4 rounded-full border-2 border-white bg-gradient-to-b from-blue-600 to-blue-100 p-4 text-white"
+	>
 		<h3 class="mb-4 text-2xl">Navigation</h3>
 		<ul>
 			<li class="mb-2"><a href="#" class="block rounded-lg p-2 hover:underline">Home</a></li>
