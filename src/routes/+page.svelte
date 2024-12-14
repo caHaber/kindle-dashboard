@@ -21,7 +21,7 @@
 <div class="flex h-screen">
 	<!-- Navigation Bar -->
 	<nav
-		class="w-1/4 rounded-full border-2 border-white bg-gradient-to-b from-blue-600 to-blue-100 p-4 text-white"
+		class="w-1/4 rounded-lg border-2 border-white bg-gradient-to-b from-blue-600 to-blue-100 p-4 text-white"
 	>
 		<h3 class="mb-4 text-2xl">Navigation</h3>
 		<ul>
