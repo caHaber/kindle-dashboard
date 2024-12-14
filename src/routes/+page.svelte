@@ -4,7 +4,7 @@
 	import Bar from '../components/Bar.svelte';
 	import { fetchCsv } from '$lib/fetchCsv';
 	import { onMount } from 'svelte';
-	import backgroundSvg from '$lib/assets/background.svg';
+	import backgroundSvg from '/background.svg';
 
 	/**
 	 * @type {never[] | import("d3-dsv").DSVRowArray<string>}
@@ -57,6 +57,6 @@
 	}
 	.right-panel {
 		background-size: cover;
-		background-image: url(backgroundSvg);
+		background-image: url({backgroundSvg});
 	}
 </style>
