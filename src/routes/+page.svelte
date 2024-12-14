@@ -4,6 +4,7 @@
 	import Bar from '../components/Bar.svelte';
 	import { fetchCsv } from '$lib/fetchCsv';
 	import { onMount } from 'svelte';
+	import backgroundSvg from '$lib/assets/background.svg';
 
 	/**
 	 * @type {never[] | import("d3-dsv").DSVRowArray<string>}
@@ -30,7 +31,7 @@
 	</nav>
 
 	<!-- Main Content -->
-	<div class="w-3/4 p-4" style="background-image: url('/background.svg'); background-size: cover;">
+	<div class="right-panel w-3/4 p-4">
 		<h3 class="mb-4 text-3xl">Kindle Dashboard</h3>
 		<div class="chart-container">
 			<LayerCake
@@ -53,5 +54,9 @@
 	.chart-container {
 		width: 100%;
 		height: 400px;
+	}
+	.right-panel {
+		background-size: cover;
+		background-image: url(backgroundSvg);
 	}
 </style>
