@@ -18,31 +18,40 @@
 	// Define some data
 </script>
 
-<h3 class="text-3xl">Kindle Dashboard</h3>
-<div class="chart-container">
-	<LayerCake
-		{data}
-		x="x"
-		y="y"
-		padding={{ bottom: 20, left: 35 }}
-		yScale={scaleBand().paddingInner(0.05)}
-		xDomain={[0, null]}
-	>
-		<Svg>
-			<Bar fill={'lightblue'} />
-		</Svg>
-	</LayerCake>
+<div class="flex h-screen">
+	<!-- Navigation Bar -->
+	<nav class="w-1/4 bg-gray-800 text-white p-4">
+		<h3 class="text-2xl mb-4">Navigation</h3>
+		<ul>
+			<li class="mb-2"><a href="#" class="hover:underline">Home</a></li>
+			<li class="mb-2"><a href="#" class="hover:underline">Dashboard</a></li>
+			<li class="mb-2"><a href="#" class="hover:underline">Settings</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main Content -->
+	<div class="w-3/4 p-4">
+		<h3 class="text-3xl mb-4">Kindle Dashboard</h3>
+		<div class="chart-container">
+			<LayerCake
+				{data}
+				x="x"
+				y="y"
+				padding={{ bottom: 20, left: 35 }}
+				yScale={scaleBand().paddingInner(0.05)}
+				xDomain={[0, null]}
+			>
+				<Svg>
+					<Bar fill={'lightblue'} />
+				</Svg>
+			</LayerCake>
+		</div>
+	</div>
 </div>
 
 <style>
-	/*
-      The wrapper div needs to have an explicit width and height in CSS.
-      It can also be a flexbox child or CSS grid element.
-      The point being it needs dimensions since the <LayerCake> element will
-      expand to fill it.
-    */
 	.chart-container {
-		width: 300px;
-		height: 300px;
+		width: 100%;
+		height: 400px;
 	}
 </style>
