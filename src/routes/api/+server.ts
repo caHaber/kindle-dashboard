@@ -1,10 +1,7 @@
    // src/routes/api/+server.js
-   import { readFileSync } from 'fs-extra';
-   import { parse } from 'csv-parse/sync';
+   import { read } from "$app/server";
+   import csv from '$lib/data/test.csv'
 
    export const GET = async () => {
-       const csvFile = readFileSync('./path/to/your/file.csv', 'utf8');
-       const records = parse(csvFile, { columns: true });
-
-       return new Response(JSON.stringify(records));
+       return await read(csv).text();
    };
