@@ -56,6 +56,6 @@
 	}
 	.right-panel {
 		background-size: cover;
-		background-image: url('$lib/assets/background.svg');
+		background-image: url('/src/lib/assets/background.svg');
 	}
 </style>
