@@ -20,12 +20,12 @@
 
 <div class="flex h-screen">
 	<!-- Navigation Bar -->
-	<nav class="w-1/4 bg-gray-800 text-white p-4">
+	<nav class="w-1/4 bg-gradient-to-b from-green-200 to-green-400 text-white p-4">
 		<h3 class="text-2xl mb-4">Navigation</h3>
 		<ul>
-			<li class="mb-2"><a href="#" class="hover:underline">Home</a></li>
-			<li class="mb-2"><a href="#" class="hover:underline">Dashboard</a></li>
-			<li class="mb-2"><a href="#" class="hover:underline">Settings</a></li>
+			<li class="mb-2"><a href="#" class="hover:underline rounded-lg p-2 block">Home</a></li>
+			<li class="mb-2"><a href="#" class="hover:underline rounded-lg p-2 block">Dashboard</a></li>
+			<li class="mb-2"><a href="#" class="hover:underline rounded-lg p-2 block">Settings</a></li>
 		</ul>
 	</nav>
 
