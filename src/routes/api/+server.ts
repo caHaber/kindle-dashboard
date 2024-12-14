@@ -1,5 +1,5 @@
    // src/routes/api/+server.js
-   import { readFileSync } from 'fs';
+   import { readFileSync } from 'fs-extra';
    import { parse } from 'csv-parse/sync';
 
    export const GET = async () => {
