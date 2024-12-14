@@ -1,22 +1,27 @@
 <script>
-	import { Canvas, LayerCake, Svg } from 'layercake';
-	import { scaleBand } from 'd3';
+	import { LayerCake, Svg } from 'layercake';
+	import { scaleBand, csv } from 'd3';
 	import Bar from '../components/Bar.svelte';
-    
+	import { fetchCsv } from '$lib/fetchCsv';
+	import { onMount } from 'svelte';
+
+	/**
+	 * @type {never[] | import("d3-dsv").DSVRowArray<string>}
+	 */
+	let data = $state([]);
+
+	onMount(async () => {
+		const response = await fetchCsv('test.csv');
+		data = response;
+	});
+
 	// Define some data
-	const points = [
-		{ x: 25, y: 5 },
-		{ x: 5, y: 10 },
-		{ x: 10, y: 20 },
-		{ x: 15, y: 30 },
-		{ x: 20, y: 40 }
-	];
 </script>
 
 <h3 class="text-3xl">Kindle Dashboard</h3>
 <div class="chart-container">
 	<LayerCake
-		data={points}
+		{data}
 		x="x"
 		y="y"
 		padding={{ bottom: 20, left: 35 }}

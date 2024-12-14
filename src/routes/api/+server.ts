@@ -1,7 +1,8 @@
-   // src/routes/api/+server.js
-   import { read } from "$app/server";
-   import somefile from './test.csv';
+// src/routes/api/+server.js
+import { read } from "$app/server";
+import somefile from '$lib/server/data/test.csv?url';
 
-   export const GET = async () => {
-       return await read(somefile).text();
-   };
+export const POST = async ({ request, cookies }) => {
+    // const body = await request.text();
+    return read(somefile);
+};
