@@ -25,7 +25,7 @@
 			<li class="mb-4">
 				<a
 					href="#"
-					class="block flex items-center rounded-md bg-gray-700 p-2 transition duration-300 ease-in-out hover:bg-gray-600"
+					class="flex items-center p-2 bg-gray-700 rounded-md transition duration-300 ease-in-out hover:bg-gray-600"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -42,10 +42,10 @@
 	</nav>
 
 	<!-- Main Content -->
-	<div class="right-panel w-4/5 bg-fixed p-6">
+	<div class="right-panel w-4/5 p-6 bg-fixed">
 		<h3 class="mb-6 text-3xl font-bold text-gray-800">Kindle Dashboard</h3>
-		<div class="columns-2">
-			<div class="h-72 w-full rounded-lg bg-white p-6 shadow-md">
+		<div class="grid grid-cols-2 gap-4">
+			<div class="h-72 w-full p-6 bg-white rounded-lg shadow-md">
 				<LayerCake
 					{data}
 					x="x"
@@ -59,7 +59,7 @@
 					</Svg>
 				</LayerCake>
 			</div>
-			<div class="h-72 w-full rounded-lg bg-white p-6 shadow-md">
+			<div class="h-72 w-full p-6 bg-white rounded-lg shadow-md">
 				<LayerCake
 					{data}
 					x="x"
