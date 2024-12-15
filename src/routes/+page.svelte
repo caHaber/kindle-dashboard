@@ -25,9 +25,13 @@
 			<li class="mb-4">
 				<a
 					href="#"
-					class="block rounded-md bg-gray-700 p-2 transition duration-300 ease-in-out hover:bg-gray-600"
-					>Home</a
+					class="flex items-center block rounded-md bg-gray-700 p-2 transition duration-300 ease-in-out hover:bg-gray-600"
 				>
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+						<path d="M10 20V12H14V20H19V10H22L12 0L2 10H5V20H10Z" />
+					</svg>
+					Home
+				</a>
 			</li>
 		</ul>
 	</nav>
