@@ -42,35 +42,37 @@
 	</nav>
 
 	<!-- Main Content -->
-	<div class="right-panel grid h-full w-4/5 grid-rows-2 gap-4 p-0">
-		<h3 class="row-span-1 text-3xl font-bold text-gray-800">Kindle Dashboard</h3>
-		<div class="row-span-1 h-full w-full rounded-lg bg-white p-6 shadow-md">
-			<LayerCake
-				{data}
-				x="x"
-				y="y"
-				padding={{ bottom: 20, left: 35 }}
-				yScale={scaleBand().paddingInner(0.05)}
-				xDomain={[0, null]}
-			>
-				<Svg>
-					<Bar fill={'lightblue'} />
-				</Svg>
-			</LayerCake>
-		</div>
-		<div class="h-1/2 w-1/2 rounded-lg bg-white p-6 shadow-md">
-			<LayerCake
-				{data}
-				x="x"
-				y="y"
-				padding={{ bottom: 20, left: 35 }}
-				yScale={scaleBand().paddingInner(0.05)}
-				xDomain={[0, null]}
-			>
-				<Svg>
-					<Bar fill={'lightblue'} />
-				</Svg>
-			</LayerCake>
+	<div class="right-panel w-4/5 bg-fixed p-6">
+		<h3 class="mb-6 text-3xl font-bold text-gray-800">Kindle Dashboard</h3>
+		<div class="columns-2">
+			<div class="h-72 w-full rounded-lg bg-white p-6 shadow-md">
+				<LayerCake
+					{data}
+					x="x"
+					y="y"
+					padding={{ bottom: 20, left: 35 }}
+					yScale={scaleBand().paddingInner(0.05)}
+					xDomain={[0, null]}
+				>
+					<Svg>
+						<Bar fill={'lightblue'} />
+					</Svg>
+				</LayerCake>
+			</div>
+			<div class="h-72 w-full rounded-lg bg-white p-6 shadow-md">
+				<LayerCake
+					{data}
+					x="x"
+					y="y"
+					padding={{ bottom: 20, left: 35 }}
+					yScale={scaleBand().paddingInner(0.05)}
+					xDomain={[0, null]}
+				>
+					<Svg>
+						<Bar fill={'lightblue'} />
+					</Svg>
+				</LayerCake>
+			</div>
 		</div>
 	</div>
 </div>
@@ -80,10 +82,7 @@
 		background-color: #f4f4f9;
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	}
-	.chart-container {
-		width: 100%;
-		height: 400px;
-	}
+
 	nav {
 		background-color: #df6c4f;
 		color: 'black';
