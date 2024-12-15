@@ -42,7 +42,7 @@
 	</nav>
 
 	<!-- Main Content -->
-	<div class="right-panel flex h-full w-4/5 flex-wrap space-x-4 p-4">
+	<div class="right-panel flex h-full w-4/5 gap-4 p-0">
 		<h3 class="mb-6 min-w-full text-3xl font-bold text-gray-800">Kindle Dashboard</h3>
 		<div class="h-1/2 w-1/2 rounded-lg bg-white p-6 shadow-md">
 			<LayerCake
