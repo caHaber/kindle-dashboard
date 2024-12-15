@@ -42,37 +42,35 @@
 	</nav>
 
 	<!-- Main Content -->
-	<div class="right-panel w-4/5 p-4">
-		<h3 class="w-1/1 mb-6 text-3xl font-bold text-gray-800">Kindle Dashboard</h3>
-		<div class="flex space-x-4">
-			<div class="h-2/3 w-1/2 rounded-lg bg-white p-6 shadow-md">
-				<LayerCake
-					{data}
-					x="x"
-					y="y"
-					padding={{ bottom: 20, left: 35 }}
-					yScale={scaleBand().paddingInner(0.05)}
-					xDomain={[0, null]}
-				>
-					<Svg>
-						<Bar fill={'lightblue'} />
-					</Svg>
-				</LayerCake>
-			</div>
-			<div class="h-2/3 w-1/2 rounded-lg bg-white p-6 shadow-md">
-				<LayerCake
-					{data}
-					x="x"
-					y="y"
-					padding={{ bottom: 20, left: 35 }}
-					yScale={scaleBand().paddingInner(0.05)}
-					xDomain={[0, null]}
-				>
-					<Svg>
-						<Bar fill={'lightblue'} />
-					</Svg>
-				</LayerCake>
-			</div>
+	<div class="right-panel flex h-full w-4/5 flex-wrap space-x-4 p-4">
+		<h3 class="mb-6 min-w-full text-3xl font-bold text-gray-800">Kindle Dashboard</h3>
+		<div class="h-1/2 w-1/2 rounded-lg bg-white p-6 shadow-md">
+			<LayerCake
+				{data}
+				x="x"
+				y="y"
+				padding={{ bottom: 20, left: 35 }}
+				yScale={scaleBand().paddingInner(0.05)}
+				xDomain={[0, null]}
+			>
+				<Svg>
+					<Bar fill={'lightblue'} />
+				</Svg>
+			</LayerCake>
+		</div>
+		<div class="h-1/2 w-1/2 rounded-lg bg-white p-6 shadow-md">
+			<LayerCake
+				{data}
+				x="x"
+				y="y"
+				padding={{ bottom: 20, left: 35 }}
+				yScale={scaleBand().paddingInner(0.05)}
+				xDomain={[0, null]}
+			>
+				<Svg>
+					<Bar fill={'lightblue'} />
+				</Svg>
+			</LayerCake>
 		</div>
 	</div>
 </div>
