@@ -20,17 +20,22 @@
 
 <div class="flex h-screen">
 	<!-- Navigation Bar -->
-	<nav class="w-1/4 p-6 bg-gradient-to-b from-gray-800 to-gray-600 text-white shadow-lg">
-		<h3 class="mb-6 text-3xl font-bold">Navigation</h3>
+	<nav class="w-1/5 bg-gradient-to-b from-gray-800 to-gray-600 p-6 text-white shadow-lg">
 		<ul>
-			<li class="mb-4"><a href="#" class="block rounded-md bg-gray-700 hover:bg-gray-600 transition duration-300 ease-in-out p-2">Home</a></li>
+			<li class="mb-4">
+				<a
+					href="#"
+					class="block rounded-md bg-gray-700 p-2 transition duration-300 ease-in-out hover:bg-gray-600"
+					>Home</a
+				>
+			</li>
 		</ul>
 	</nav>
 
 	<!-- Main Content -->
-	<div class="right-panel w-3/4 p-4">
+	<div class="right-panel w-4/5 p-4">
 		<h3 class="mb-6 text-3xl font-bold text-gray-800">Kindle Dashboard</h3>
-		<div class="chart-container bg-white shadow-md rounded-lg p-6">
+		<div class="chart-container rounded-lg bg-white p-6 shadow-md">
 			<LayerCake
 				{data}
 				x="x"
