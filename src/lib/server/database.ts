@@ -1,6 +1,7 @@
 // import { DuckDBInstance } from '@duckdb/node-api';
 import genericPool from 'generic-pool'
-import path from 'path';
+import { MOTHERDUCK_TOKEN } from '$env/static/private'
+
 
 const pool = genericPool.createPool(
     {
@@ -8,11 +9,12 @@ const pool = genericPool.createPool(
 
             let _query: Promise<(query: string) => any>
 
-            let duckDBfile = path.join(process.cwd(), './src/lib/server/data/duck_kindle_audible.db');
-
+            console.log({ MOTHERDUCK_TOKEN })
             _query = import("duckdb-async")
                 .then(duckdb => duckdb.Database)
-                .then(Database => Database.create(duckDBfile))
+                .then(Database => Database.create('md:kindle-data', {
+                    'motherduck_token': MOTHERDUCK_TOKEN,
+                }))
                 .then((db: any) => ((query: string) => db.all(query)))
                 .catch(async error => {
                     console.log("duckdb init error:", error)

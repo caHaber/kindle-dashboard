@@ -93,7 +93,9 @@ async function loadJSONFiles(db) {
 
 // Main function to orchestrate the loading process
 async function main() {
-    const instance = await DuckDBInstance.create(config.databasePath);
+    const instance = await DuckDBInstance.create('md:kindle-data', {
+        'motherduck_token': ""
+    });
     const db = await instance.connect();
 
     try {
