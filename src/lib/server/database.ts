@@ -11,14 +11,9 @@ const pool = genericPool.createPool(
 
             _query = import("duckdb-async")
                 .then(duckdb => duckdb.Database)
-                .then(async Database => {
-                    const db = Database.create('md:kindle-data', {
-                        'motherduck_token': MOTHERDUCK_TOKEN,
-                    });
-                    (await db).all("SET home_directory='/tmp';")
-                    // (await db).all()
-                    return db
-                })
+                .then(Database => Database.create('md:kindle-data', {
+                    'motherduck_token': MOTHERDUCK_TOKEN,
+                }))
                 .then((db: any) => ((query: string) => db.all(query)))
                 .catch(async error => {
                     console.log("duckdb init error:", error)
@@ -28,11 +23,10 @@ const pool = genericPool.createPool(
                     const db = new Database('md:kindle-data', {
                         'motherduck_token': MOTHERDUCK_TOKEN,
                     })
-                    await db.all(`SET home_directory='/tmp';`, false);
                     const connection = db.connect()
                     return (query: string) => {
                         return new Promise((resolve, reject) => {
-                            connection.all(query, (err: any, res: any) => {
+                            connection.all(`SET home_directory='/tmp'; ${query}`, (err: any, res: any) => {
                                 if (err) reject(err);
                                 resolve(res);
                             })
