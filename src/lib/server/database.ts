@@ -56,7 +56,7 @@ const pool = genericPool.createPool(
 BigInt.prototype.toJSON = function () { return Number(this) }
 
 export async function query(sql: string) {
-    // const db = await pool.acquire();
+    const db = await pool.acquire();
     try {
         const result = await db(sql);
         return result;
