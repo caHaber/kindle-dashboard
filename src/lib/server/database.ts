@@ -8,7 +8,7 @@ const pool = genericPool.createPool(
 
             let _query: Promise<(query: string) => any>
 
-            let duckDBfile = path.join(process.cwd(), 'src/lib/server/data/duck_kindle_audible.db');
+            let duckDBfile = path.join(process.cwd(), './src/lib/server/data/duck_kindle_audible.db');
 
             _query = import("duckdb-async")
                 .then(duckdb => duckdb.Database)
