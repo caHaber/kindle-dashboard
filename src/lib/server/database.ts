@@ -23,6 +23,7 @@ const pool = genericPool.createPool(
                     let Database: any = await duckdb.Database;
                     const db = new Database(":memory:")
                     const connection = db.connect()
+                    await connection.all(`SET home_directory='/tmp';`, false);
                     return (query: string) => {
                         return new Promise((resolve, reject) => {
                             connection.all(query, (err: any, res: any) => {
