@@ -17,8 +17,7 @@ const GET_TOTAL_READING_AND_PAGE_FLIPS = {
 }
 
 export const POST = async ({ request, cookies }) => {
-    console.log('POST')
-    const body = await query(GET_TOTAL_READING_AND_PAGE_FLIPS.query);
 
-    return json(({ rows: await body?.getRows(), headers: GET_TOTAL_READING_AND_PAGE_FLIPS.headers }));
+    const body = await query(GET_TOTAL_READING_AND_PAGE_FLIPS.query);
+    return json(body);
 };

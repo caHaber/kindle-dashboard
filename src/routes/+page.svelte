@@ -13,7 +13,6 @@
 	let data = $state([]);
 
 	onMount(async () => {
-		console.log('MOUNT');
 		// const response = await fetchCsv('test.csv');
 		const response = await fetch('/api', {
 			method: 'POST',
@@ -21,8 +20,7 @@
 				'Content-Type': 'application/json'
 			}
 		});
-		data = (await response.json()).rows;
-		console.log(data);
+		data = await response.json();
 	});
 
 	// Define some data
@@ -58,8 +56,8 @@
 			<div class=" h-full w-full rounded-lg bg-white p-0 shadow-lg">
 				<LayerCake
 					{data}
-					x={2}
-					y={0}
+					x={'sum(number_of_page_flips)'}
+					y={'series-product-name'}
 					padding={{ bottom: 20, left: 35, top: 20, right: 20 }}
 					yScale={scaleBand().paddingInner(0.05)}
 					xDomain={[0, null]}
@@ -73,7 +71,14 @@
 				<ObservablePlot
 					options={{
 						title: 'Page turns',
-						marks: [Plot.barX(data, { x: '3', y: '1', fill: '0', tip: 'xy' })],
+						marks: [
+							Plot.barX(data, {
+								x: 'sum(number_of_page_flips)',
+								y: 'series-product-name',
+								fill: 'Product Name',
+								tip: 'xy'
+							})
+						],
 						marginLeft: 140
 					}}
 				/>
