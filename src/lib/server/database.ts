@@ -2,12 +2,25 @@
 import genericPool from 'generic-pool'
 import { MOTHERDUCK_TOKEN } from '$env/static/private'
 
+import { Database } from "duckdb-async";
+
+
+
+async function simpleTest(query) {
+    const db = await Database.create("md:kindle-data", {
+        'motherduck_token': MOTHERDUCK_TOKEN,
+    });
+    const rows = await db.all(`SET home_directory='/tmp'; ${query}`);
+    return rows
+}
 
 const pool = genericPool.createPool(
     {
         create: async () => {
 
             let _query: Promise<(query: string) => any>
+
+
 
             _query = import("duckdb-async")
                 .then(duckdb => duckdb.Database)
@@ -56,13 +69,14 @@ const pool = genericPool.createPool(
 BigInt.prototype.toJSON = function () { return Number(this) }
 
 export async function query(sql: string) {
-    const db = await pool.acquire();
+    // const db = await pool.acquire();
     try {
-        const result = await db(sql);
+        const result = await simpleTest(sql);
         return result;
     } catch (e) {
         console.log(e)
-    } finally {
-        pool.release(db);
     }
+    // finally {
+    //     pool.release(db);
+    // }
 }
