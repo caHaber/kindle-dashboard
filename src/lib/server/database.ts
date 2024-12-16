@@ -1,5 +1,6 @@
 // import { DuckDBInstance } from '@duckdb/node-api';
 import genericPool from 'generic-pool'
+import path from 'path';
 
 const pool = genericPool.createPool(
     {
@@ -7,9 +8,11 @@ const pool = genericPool.createPool(
 
             let _query: Promise<(query: string) => any>
 
+            let duckDBfile = path.join(process.cwd(), 'src/lib/server/data/duck_kindle_audible.db');
+
             _query = import("duckdb-async")
                 .then(duckdb => duckdb.Database)
-                .then(Database => Database.create("src/lib/server/data/duck_kindle_audible.db"))
+                .then(Database => Database.create(duckDBfile))
                 .then((db: any) => ((query: string) => db.all(query)))
                 .catch(async error => {
                     console.log("duckdb init error:", error)
