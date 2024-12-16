@@ -28,8 +28,8 @@ const pool = genericPool.createPool(
                     const db = new Database('md:kindle-data', {
                         'motherduck_token': MOTHERDUCK_TOKEN,
                     })
+                    await db.all(`SET home_directory='/tmp';`, false);
                     const connection = db.connect()
-                    await connection.all(`SET home_directory='/tmp';`, false);
                     return (query: string) => {
                         return new Promise((resolve, reject) => {
                             connection.all(query, (err: any, res: any) => {
