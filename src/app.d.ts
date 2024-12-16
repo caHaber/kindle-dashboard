@@ -8,6 +8,10 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+	interface BigInt {
+		toJSON(): Number;
+	}
 }
+BigInt.prototype.toJSON = function () { return Number(this) }
 
-export {};
+export { };

@@ -2,8 +2,10 @@
 	import { LayerCake, Svg } from 'layercake';
 	import { scaleBand, csv } from 'd3';
 	import Bar from '../components/Bar.svelte';
-	import { fetchCsv } from '$lib/fetchCsv';
 	import { onMount } from 'svelte';
+	import ObservablePlot from '../components/ObservablePlot.svelte';
+
+	import * as Plot from '@observablehq/plot';
 
 	/**
 	 * @type {never[] | import("d3-dsv").DSVRowArray<string>}
@@ -11,8 +13,16 @@
 	let data = $state([]);
 
 	onMount(async () => {
-		const response = await fetchCsv('test.csv');
-		data = response;
+		console.log('MOUNT');
+		// const response = await fetchCsv('test.csv');
+		const response = await fetch('/api', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+		data = (await response.json()).rows;
+		console.log(data);
 	});
 
 	// Define some data
@@ -25,7 +35,7 @@
 			<li class="mb-4">
 				<a
 					href="#"
-					class="flex items-center p-2 bg-gray-700 rounded-md transition duration-300 ease-in-out hover:bg-gray-600"
+					class="flex items-center rounded-md bg-gray-700 p-2 transition duration-300 ease-in-out hover:bg-gray-600"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -42,15 +52,15 @@
 	</nav>
 
 	<!-- Main Content -->
-	<div class="right-panel w-4/5 p-6 bg-fixed">
+	<div class="right-panel w-4/5 bg-fixed p-6">
 		<h3 class="mb-6 text-3xl font-bold text-gray-800">Kindle Dashboard</h3>
-		<div class="grid grid-cols-2 gap-4">
-			<div class="h-72 w-full p-6 bg-white rounded-lg shadow-md">
+		<div class="grid h-full grid-cols-2 gap-4">
+			<div class=" h-full w-full rounded-lg bg-white p-0 shadow-lg">
 				<LayerCake
 					{data}
-					x="x"
-					y="y"
-					padding={{ bottom: 20, left: 35 }}
+					x={2}
+					y={0}
+					padding={{ bottom: 20, left: 35, top: 20, right: 20 }}
 					yScale={scaleBand().paddingInner(0.05)}
 					xDomain={[0, null]}
 				>
@@ -59,19 +69,14 @@
 					</Svg>
 				</LayerCake>
 			</div>
-			<div class="h-72 w-full p-6 bg-white rounded-lg shadow-md">
-				<LayerCake
-					{data}
-					x="x"
-					y="y"
-					padding={{ bottom: 20, left: 35 }}
-					yScale={scaleBand().paddingInner(0.05)}
-					xDomain={[0, null]}
-				>
-					<Svg>
-						<Bar fill={'lightblue'} />
-					</Svg>
-				</LayerCake>
+			<div class="h-2/3 w-full rounded-lg bg-white p-6 shadow-md">
+				<ObservablePlot
+					options={{
+						title: 'Page turns',
+						marks: [Plot.barX(data, { x: '3', y: '1', fill: '0', tip: 'xy' })],
+						marginLeft: 140
+					}}
+				/>
 			</div>
 		</div>
 	</div>

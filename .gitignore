@@ -1,4 +1,5 @@
 node_modules
+scripts/data
 
 # Output
 .output
@@ -11,6 +12,7 @@ node_modules
 # OS
 .DS_Store
 Thumbs.db
+.vscode
 
 # Env
 .env
