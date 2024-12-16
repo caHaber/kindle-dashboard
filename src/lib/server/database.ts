@@ -14,7 +14,7 @@ const pool = genericPool.createPool(
                 .then(Database => Database.create('md:kindle-data', {
                     'motherduck_token': MOTHERDUCK_TOKEN,
                 }))
-                .then((db: any) => ((query: string) => db.all(query)))
+                .then((db: any) => ((query: string) => db.all(`SET home_directory='/tmp'; ${query}`)))
                 .catch(async error => {
                     console.log("duckdb init error:", error)
                     //@ts-expect-error error
