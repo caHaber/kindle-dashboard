@@ -1,0 +1,7 @@
+{
+    "functions": {
+        "src/lib/server/database.ts": {
+            "includeFiles": "src/lib/server/data/duck_kindle_audible.db"
+        }
+    }
+}
